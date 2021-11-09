@@ -1,0 +1,24 @@
+{
+  "name": "car-vin-decoder",
+  "version": "1.0.0",
+  "description": "Simple Car Vin decoder",
+  "main": "lib/index.js",
+  "types": "lib",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dutarares08/car-vin-decoder.git"
+  },
+  "author": "raresduta08",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dutarares08/car-vin-decoder/issues"
+  },
+  "homepage": "https://github.com/dutarares08/car-vin-decoder#readme",
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}
