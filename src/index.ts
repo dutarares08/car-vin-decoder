@@ -4,76 +4,44 @@ import {getManufacturer} from "./utils";
 import { getLogo, getYear, getLogoFromCode } from "./utils";
 
 
-export function testFunction(a:string){
-    console.log("test function");
-    console.log(a);
-}
-
 
 export function vinDecoder(vin:String){
-    const valid = (validateVin(vin));
+    const valid = validateVin(vin);
     const splited = splitVinCode(vin);
 
     if(!valid)
         return false;
 
     var vinInstance ={
-        validate:function validate(){
-            return valid;
+        validate:valid,
+        manufacturer: getManufacturer(splited.manufacturer),
+        serialNumber: splited.serialNumber,
+        country: getCountry(splited.country),
+        securityCode: splited.securityCode,
+        assemblyPlant: splited.assemblyPlant,
+        logoImage: getLogoFromCode(splited.manufacturer),
+        year: getYear(splited.year)[0] || null,
+        posibleYear:getYear(splited.year),
+        details: splited.details,
+
+        decode:{
+            manufacturer:getManufacturer(splited.manufacturer),
+            country:getCountry(splited.country),
+            year:getYear(splited.year)[0],
+            posibleYear:getYear(splited.year),
+            logoImage:getLogoFromCode(splited.manufacturer)
         },
 
-        manufacturer: function manufacturer(){
-            return getManufacturer(splited.manufacturer)  
-        },
-
-        serialNumber:function serialnumber(){
-            return splited.serialNumber
-            
-        },
-        country:function country(){
-            return getCountry(splited.country)
-        },
-        securityCode:function securityCode(){
-            return splited.securityCode
-        },
-        assemblyPlant:function assemblyPlant()
-        {
-            return splited.assemblyPlant
-        },
-        logoImage:function logoImage(){
-            return getLogoFromCode(splited.manufacturer)
-        },
-        year:function year(){
-            return getYear(splited.year)[0] || null
-        },
-        posibleYear:function posibleYear(){
-            return getYear(splited.year)
-        },
-        details:function details(){
-            return splited.details
-        },
-
-        decode:function decode(){
-            return {
-                manufacturer:getManufacturer(splited.manufacturer),
-                country:getCountry(splited.country),
-                year:getYear(splited.year)[0],
-                posibleYear:getYear(splited.year),
-                logoImage:getLogoFromCode(splited.manufacturer)
-            }
-        },
-        decode_all_info:function decode_all(){
-            return{
-                manufacturer:getManufacturer(splited.manufacturer),
-                country:getCountry(splited.country),
-                year:getYear(splited.year)[0],
-                posibleYear:getYear(splited.year),
-                serialNumber:splited.serialNumber,
-                securityCode:splited.securityCode,
-                assemblyPlant:splited.assemblyPlant,
-                details:splited.details,
-                logoImage:getLogoFromCode(splited.manufacturer)
-            }
+        decode_all_info:{
+            manufacturer:getManufacturer(splited.manufacturer),
+            country:getCountry(splited.country),
+            year:getYear(splited.year)[0],
+            posibleYear:getYear(splited.year),
+            serialNumber:splited.serialNumber,
+            securityCode:splited.securityCode,
+            assemblyPlant:splited.assemblyPlant,
+            details:splited.details,
+            logoImage:getLogoFromCode(splited.manufacturer)
         }
 
     }
