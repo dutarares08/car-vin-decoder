@@ -18,7 +18,7 @@
    
    import { vinDecoder } from 'car-vin-decoder';
    
-   const result = vinDecoder("WAUZZZ8E05A410409").decode();
+   const result = vinDecoder("WAUZZZ8E05A410409").decode;
    
    //Return al information extracted from VIN: Manufacturer, Country of Origin, Year, Logo Image, etc;
    /*  
@@ -38,7 +38,7 @@
 ```JavaScript
    import { vinDecoder } from 'car-vin-decoder';
    
-   const result = vinDecoder("WAUZZZ8E05A410409").decode_all_info();
+   const result = vinDecoder("WAUZZZ8E05A410409").decode_all_info;
    
    // Return all Standard information  + Serial Number, Assembly Plant, Security Code, etc;
   /*
@@ -80,35 +80,35 @@
  
  **1) Extract Manufacturer**
  ```JavaScript
-    const manufacturer = result.manufacturer()
+    const manufacturer = result.manufacturer
  ```
   **2) Extract Country**
  ```JavaScript
-    const country = result.country()
+    const country = result.country
  ```
    **3) Extract Year**
  ```JavaScript
-    const year = result.year()
+    const year = result.year
  ```
    **4) Extract Logo Image**
  ```JavaScript
-    const image = result.logoImage()
+    const image = result.logoImage
  ```
    **5) Extract Serial Number**
  ```JavaScript
-    const serial_number = result.serialNumber()
+    const serial_number = result.serialNumber
  ```
    **6) Extract Security Code**
  ```JavaScript
-    const security_code = result.securityCode()
+    const security_code = result.securityCode
  ```
    **7) Extract Other Details**
  ```JavaScript
-    const details = result.details()
+    const details = result.details
  ```
-   **7) Extract Assembly Plant**
+   **8) Extract Assembly Plant**
  ```JavaScript
-    const assembly_plant = result.assemblyPlant()
+    const assembly_plant = result.assemblyPlant
  ```
 
 
